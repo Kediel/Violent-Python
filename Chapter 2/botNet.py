@@ -29,23 +29,23 @@ class Client:
         self.session.prompt()
         return self.session.before
 
-    def botnetCommand(command):
+def botnetCommand(command):
+        
+    for client in botNet:
 
-        for client in botNet:
+        output = client.send_command(command)
+        print '[*] Output from ' + client.host
+        print '[+] ' + output + '\n'
+        
+def addClient(host, user, password):
 
-            output = client.send_command(command)
-            print '[*] Output from ' + client.host
-            print '[+] ' + output + '\n'
+    client = Client(host, user, password)
+    botNet.append(client)
 
-    def addClient(host, user, password):
-
-        client = Client(host, user, password)
-        botNet.append(client)
-
-    botNet = []
-    # Enter client information.
-    addClient('', '', '')
-    addClient('', '', '')
-    addClient('', '', '')
-    botnetCommand('uname -v')
-    botnetCommand('cat /etc/issue')
+botNet = []
+# Enter client information.
+addClient('', '', '')
+addClient('', '', '')
+addClient('', '', '')
+botnetCommand('uname -v')
+botnetCommand('cat /etc/issue')
