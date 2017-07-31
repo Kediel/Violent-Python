@@ -43,8 +43,9 @@ class Client:
         botNet.append(client)
 
     botNet = []
-    addClient('', 'root', 'toor')
-    addClient('', 'root', 'toor')
-    addClient('', 'root', 'toor')
+    # Enter client information.
+    addClient('', '', '')
+    addClient('', '', '')
+    addClient('', '', '')
     botnetCommand('uname -v')
     botnetCommand('cat /etc/issue')
