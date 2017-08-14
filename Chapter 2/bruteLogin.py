@@ -24,6 +24,7 @@ def bruteLogin(hostname, passwdFile):
 
     print '\n[-] Could not brute force FTP credentials.'
     return (None, None)
+
 # Specify FTP host.
 host = ''
 passwdFile = 'userpass.txt'
